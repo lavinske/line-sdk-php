@@ -27,7 +27,7 @@ class Login
     public function get_authorization_url(string $redirect_uri, array $scope, string $state = null, string $nonce = null, string $response_type = 'code', string $prompt = "consent", int $max_age = null, string $bot_prompt = null)
     {
         if (count($scope) <= 1) {
-            throw new \InvalidArgumentException("Scope must have at least 1 scope.");
+            throw new \InvalidArgumentException("Scope harus memiliki minimal 1 scope.");
         }
 
         if ($state === null) {
@@ -58,7 +58,7 @@ class Login
 
         if ($bot_prompt) {
             if (!\in_array($bot_prompt, ["normal", "aggressive"])) {
-                throw new \InvalidArgumentException("Unknown value supplied to Bot Prompt. It must be either `normal` or `aggressive`, got " . $bot_prompt);
+                throw new \InvalidArgumentException("Nilai tidak diketahui oleh Bot. Nilai haruslah 'normal' atau 'agresif', yang didapatkan " . $bot_prompt);
             }
             $request['bot_prompt'] = $bot_prompt;
         }
@@ -87,7 +87,7 @@ class Login
         }
 
         if ($last_state != $_GET[$GET_state]) {
-            throw new \InvalidArgumentException("Last state is not the same with given state. Got " . $_GET[$GET_state] . ". Expecting " . $last_state . ".");
+            throw new \InvalidArgumentException("Kondisi terakhir tidak sama dengan yang diberikan. Kondisi saat ini " . $_GET[$GET_state] . ". Seharusnya " . $last_state . ".");
         }
 
         if (array_key_exists($GET_error, $_GET)) {

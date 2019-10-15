@@ -26,7 +26,7 @@ class Token
     public function getAccessToken()
     {
         if (!$this->id_token) {
-            throw new \BadMethodCallException("id_token is not supplied.");
+            throw new \BadMethodCallException("id_token tidak diberikan.");
         }
         return $this->id_token;
     }
@@ -39,7 +39,7 @@ class Token
     public function getRefreshToken()
     {
         if (!$this->id_token) {
-            throw new \BadMethodCallException("refresh_token is not supplied.");
+            throw new \BadMethodCallException("refresh_token tidak diberikan.");
         }
         return $this->id_token;
     }
